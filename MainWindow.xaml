@@ -85,14 +85,16 @@
             <DockPanel LastChildFill="True">
                 <StackPanel>
                     <TextBlock Text="Menu" Foreground="White" FontWeight="Bold" Margin="6,0,0,8"/>
-                    <Button Style="{StaticResource SidebarButtonStyle}">
+                    <Button Style="{StaticResource SidebarButtonStyle}"
+                        Command="{Binding ShowDashboardViewCommand}">
                         <StackPanel Orientation="Horizontal" >
                             <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE8A5;" Margin="6,0" Width="22" Foreground="White"/>
                             <TextBlock Text="Tổng quan" Margin="8,0,0,0" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
 
-                    <Button Style="{StaticResource SidebarButtonStyle}">
+                    <Button Style="{StaticResource SidebarButtonStyle}"
+                        Command="{Binding ShowProductViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE14C;" Margin="6,0" Width="22" Foreground="White"/>
                             <TextBlock Text="Sản phẩm" Margin="8,0,0,0" VerticalAlignment="Center"/>
@@ -154,49 +156,7 @@
         </Border>
 
         <Grid Grid.Column="1" Grid.Row="1" Margin="18,0,0,0 ">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,12">
-                <Button Width="160" Height="48" Margin="0,0,12,0" Background="#2D6A9F" Foreground="White" BorderBrush="#1F4F73">
-                    <StackPanel>
-                        <TextBlock FontSize="16" FontWeight="SemiBold" Text="Hàng còn trong kho" HorizontalAlignment="Center"/>
-
-                    </StackPanel>
-                </Button>
-                <Button Width="160" Height="48" Margin="0,0,12,0">
-                    <StackPanel>
-                        <TextBlock FontSize="16" FontWeight="SemiBold" Text="Nhập hàng" HorizontalAlignment="Center"/>
-
-                    </StackPanel>
-                </Button>
-                <Button Width="160" Height="48" Margin="0,0,12,0">
-                    <StackPanel>
-                        <TextBlock FontSize="16" FontWeight="SemiBold" Text="Xuất hàng" HorizontalAlignment="Center"/>
-
-                    </StackPanel>
-                </Button>
-            </StackPanel>
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-
-                <Border Grid.Column="0" Background="White" CornerRadius="6" Padding="12" Margin="0,0,12,0" BorderBrush="#E0E0E0" BorderThickness="1">
-                    <StackPanel>
-                        <TextBlock FontSize="16" FontWeight="SemiBold" Text="Giao dịch gần đây" Margin="0,0,0,8"/>
-                        <TextBlock Foreground="#666" Text="(Nothing be there=)) )" />
-                        <ListView Margin="0,8,0,0" Height="300">
-                            <ListViewItem>2025-10-01 - Nhâp hàng - ABC123 - 50</ListViewItem>
-                            <ListViewItem>2025-10-02 - Xuất hàng - XYZ987 - 20</ListViewItem>
-                            <ListViewItem>2025-10-03 - Nhâp hàng - DEF456 - 30</ListViewItem>
-                        </ListView>
-                    </StackPanel>
-                </Border>
-            </Grid>
+            <ContentControl Content="{Binding CurrentView}" />
         </Grid>
     </Grid>
 </Window>
