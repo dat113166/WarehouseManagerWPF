@@ -21,6 +21,8 @@ namespace WMS.ViewModels
         // --- Các lệnh điều hướng ---
         public ICommand ShowDashboardViewCommand { get; }
         public ICommand ShowProductViewCommand { get; }
+        public ICommand ShowReceivingViewCommand { get; }
+        public ICommand ShowShippingViewCommand { get; }
         // Thêm các Command khác cho Nhập hàng, Xuất hàng...
 
         public MainViewModel()
@@ -28,6 +30,8 @@ namespace WMS.ViewModels
             // --- Khởi tạo các Command ---
             ShowDashboardViewCommand = new RelayCommand(o => CurrentView = new DashboardViewModel());
             ShowProductViewCommand = new RelayCommand(o => CurrentView = new ProductViewModel());
+            ShowReceivingViewCommand = new RelayCommand(o => CurrentView = new ReceivingViewModel());
+            ShowShippingViewCommand = new RelayCommand(o => CurrentView = new ShippingViewModel());
             // Thêm các Command khác...
 
             // --- View mặc định khi mở ứng dụng ---
