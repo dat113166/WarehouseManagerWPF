@@ -14,9 +14,7 @@
     <DataTemplate DataType="{x:Type viewmodel:ReceivingViewModel}">
         <view:ReceivingView/>
     </DataTemplate>
-    <DataTemplate DataType="{x:Type viewmodel:ReceivingViewModel}">
-        <view:ReceivingView/>
-    </DataTemplate>
+
     <DataTemplate DataType="{x:Type viewmodel:ShippingViewModel}">
         <view:ShippingView/>
     </DataTemplate>

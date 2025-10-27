@@ -17,7 +17,7 @@ namespace WMS.Views
     /// <summary>
     /// Interaction logic for ShippingView.xaml
     /// </summary>
-    public partial class ShippingView : Window
+    public partial class ShippingView : UserControl
     {
         public ShippingView()
         {
