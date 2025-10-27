@@ -23,5 +23,8 @@ namespace WMS.Model
         public decimal? LineTotal { get; set; }
 
         public virtual ShippingNote ShippingNote { get; set; }
+
+        // Navigation to product (added)
+        public virtual Product Product { get; set; }
     }
 }

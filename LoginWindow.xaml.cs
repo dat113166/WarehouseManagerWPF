@@ -8,6 +8,7 @@ namespace WMS
         public LoginWindow()
         {
             InitializeComponent();
+            txtUsername.Focus();
 
             var viewModel = new LoginViewModel();
             this.DataContext = viewModel;

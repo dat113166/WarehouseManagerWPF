@@ -1,5 +1,4 @@
 ﻿using System.Windows.Input;
-using WMS.RelayCommand;
 using WMS.Utils;
 using WMS.ViewModels;
 using WMS.ViewModels.Base; // Dùng lớp Base
@@ -22,14 +21,24 @@ namespace WMS.ViewModels
         // --- Các lệnh điều hướng ---
         public ICommand ShowDashboardViewCommand { get; }
         public ICommand ShowProductViewCommand { get; }
-        // Thêm các Command khác cho Nhập hàng, Xuất hàng...
+        public ICommand ShowWarehouseViewCommand { get; }
+        public ICommand ShowNhapHangViewCommand { get; }
+        public ICommand ShowXuatHangViewCommand { get; }
+        public ICommand ShowInventoryViewCommand { get; }
+        public ICommand ShowCustomerViewCommand { get; }
+        public ICommand ShowSupplierViewCommand { get; }
 
         public MainViewModel()
         {
             // --- Khởi tạo các Command ---
             ShowDashboardViewCommand = new RelayCommand(o => CurrentView = new DashboardViewModel());
             ShowProductViewCommand = new RelayCommand(o => CurrentView = new ProductViewModel());
-            // Thêm các Command khác...
+            ShowWarehouseViewCommand = new RelayCommand(o => CurrentView = new WarehouseViewModel());
+            ShowNhapHangViewCommand = new RelayCommand(o => CurrentView = new NhapHangViewModel());
+            ShowXuatHangViewCommand = new RelayCommand(o => CurrentView = new XuatHangViewModel());
+            ShowInventoryViewCommand = new RelayCommand(o => CurrentView = new InventoryViewModel());
+            ShowCustomerViewCommand = new RelayCommand(o => CurrentView = new CustomerViewModel());
+            ShowSupplierViewCommand = new RelayCommand(o => CurrentView = new SupplierViewModel());
 
             // --- View mặc định khi mở ứng dụng ---
             CurrentView = new DashboardViewModel(); // Đặt Dashboard làm view mặc định
