@@ -17,7 +17,7 @@ namespace WMS.Views
     /// <summary>
     /// Interaction logic for ProductView.xaml
     /// </summary>
-    public partial class ProductView : Window
+    public partial class ProductView : UserControl
     {
         public ProductView()
         {
