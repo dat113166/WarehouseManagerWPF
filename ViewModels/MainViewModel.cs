@@ -27,6 +27,7 @@ namespace WMS.ViewModels
         public ICommand ShowInventoryViewCommand { get; }
         public ICommand ShowCustomerViewCommand { get; }
         public ICommand ShowSupplierViewCommand { get; }
+        public ICommand ExitCommand { get; }
 
         public MainViewModel()
         {
@@ -39,6 +40,7 @@ namespace WMS.ViewModels
             ShowInventoryViewCommand = new RelayCommand(o => CurrentView = new InventoryViewModel());
             ShowCustomerViewCommand = new RelayCommand(o => CurrentView = new CustomerViewModel());
             ShowSupplierViewCommand = new RelayCommand(o => CurrentView = new SupplierViewModel());
+            ExitCommand = new RelayCommand(o => System.Windows.Application.Current.Shutdown());
 
             // --- View mặc định khi mở ứng dụng ---
             CurrentView = new DashboardViewModel(); // Đặt Dashboard làm view mặc định
