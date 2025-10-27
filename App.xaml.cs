@@ -8,11 +8,7 @@ namespace WMS
         {
             base.OnStartup(e);
 
-            // Khởi động LoginWindow
-            LoginWindow loginWindow = new LoginWindow();
-            loginWindow.Show();
-
-            // (Không cần dòng MainWindow.Show() ở đây nữa)
+            // StartupUri in App.xaml will open MainWindow. Removed LoginWindow startup.
         }
     }
 }

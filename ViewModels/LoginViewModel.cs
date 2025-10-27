@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using WMS.Utils; // Thư mục chứa RelayCommand
-// using WMS.Models; // Giả sử bạn đã có DbContext và Employee
+using WMS.Model; // Giả sử bạn đã có DbContext và Employee
 using System.Linq;
 
 namespace WMS.ViewModels

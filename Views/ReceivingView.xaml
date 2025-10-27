@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="WMS.Views.ReceivingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800"
+             Background="#F4F7FC">
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Background="White" CornerRadius="5" Padding="15" BorderBrush="#E0E0E0" BorderThickness="1" Margin="0,0,10,0">
+            <StackPanel>
+                <TextBlock Text="Tạo Phiếu Nhập Hàng" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,15"/>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Nhà cung cấp:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+                    <ComboBox Grid.Row="0" Grid.Column="1" Margin="5"
+                              ItemsSource="{Binding ListSuppliers}"
+                              DisplayMemberPath="SupplierName"
+                              SelectedItem="{Binding SelectedSupplier}"/>
+
+                    <TextBlock Text="Kho nhập:" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" Margin="5"/>
+                    <ComboBox Grid.Row="0" Grid.Column="3" Margin="5"
+                              ItemsSource="{Binding ListWarehouses}"
+                              DisplayMemberPath="WarehouseName"
+                              SelectedItem="{Binding SelectedWarehouse}"/>
+
+                    <TextBlock Text="Ngày nhập:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+                    <DatePicker Grid.Row="1" Grid.Column="1" Margin="5"
+                                SelectedDate="{Binding NoteDate}"/>
+                </Grid>
+
+                <Separator Margin="5,15"/>
+
+                <TextBlock Text="Thêm sản phẩm:" FontWeight="SemiBold" Margin="5,0,0,5"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ComboBox Grid.Column="0" Margin="5"
+                              ItemsSource="{Binding ListProducts}"
+                              DisplayMemberPath="ProductName"
+                              SelectedItem="{Binding SelectedProductToAdd}"/>
+
+                    <TextBox Grid.Column="1" Margin="5" 
+                             Text="{Binding CurrentQuantity, UpdateSourceTrigger=PropertyChanged}" 
+                             ToolTip="Số lượng"/>
+
+                    <TextBox Grid.Column="2" Margin="5" 
+                             Text="{Binding CurrentUnitPrice, UpdateSourceTrigger=PropertyChanged}" 
+                             ToolTip="Đơn giá"/>
+
+                    <Button Grid.Column="3" Margin="5,5,10,5" Content="Thêm" Command="{Binding AddProductToNoteCommand}"/>
+                </Grid>
+
+                <DataGrid ItemsSource="{Binding NoteDetails}"
+                          AutoGenerateColumns="False" 
+                          IsReadOnly="True"
+                          Height="350"
+                          VerticalScrollBarVisibility="Auto" Margin="5,10,5,5">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Sản phẩm" Binding="{Binding Product.ProductName}" Width="2*"/>
+                        <DataGridTextColumn Header="SL" Binding="{Binding Quantity}" Width="1*"/>
+                        <DataGridTextColumn Header="Đơn giá" Binding="{Binding UnitPrice, StringFormat='N0'}" Width="1.2*"/>
+                        <DataGridTextColumn Header="Thành tiền" Binding="{Binding LineTotal, StringFormat='N0'}" Width="1.5*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Column="1" Background="White" CornerRadius="5" Padding="15" BorderBrush="#E0E0E0" BorderThickness="1" Margin="10,0,0,0">
+            <StackPanel>
+                <TextBlock Text="Xác nhận" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,15"/>
+                <TextBlock Text="Tổng tiền:" FontSize="16" Margin="0,10,0,5"/>
+                <TextBlock Text="{Binding TotalAmount, StringFormat='N0'}" FontSize="24" FontWeight="Bold" Foreground="#2D6A9F" Margin="0,0,0,20"/>
+
+                <Button Content="Lưu Phiếu Nhập" 
+                        Command="{Binding SaveNoteCommand}" 
+                        Height="40" Background="#2D6A9F" Foreground="White"/>
+                <Button Content="Hủy (Làm mới)" 
+                        Command="{Binding ClearAllCommand}" 
+                        Height="30" Margin="0,10,0,0"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

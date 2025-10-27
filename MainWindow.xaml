@@ -70,7 +70,7 @@
                         </Ellipse.Effect>
                     </Ellipse>
                     <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
-                        <TextBlock Style="{StaticResource HeaderText}" Text="Quản Lý Nhà Kho" />
+                        <TextBlock Style="{StaticResource HeaderText}" Text="Quản Lý Hàng hóa" />
                         <TextBlock FontSize="11" Foreground="#666" Text="Kiểm tra và xuất hàng trong kho" />
                     </StackPanel>
                 </StackPanel>
@@ -101,28 +101,49 @@
                         </StackPanel>
                     </Button>
 
-                    <Button Style="{StaticResource SidebarButtonStyle}">
+                    <!-- Added Warehouse management under Product -->
+                    <Button Style="{StaticResource SidebarButtonStyle}"
+                            Command="{Binding ShowWarehouseViewCommand}">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE8D7;" Margin="6,0" Width="22" Foreground="White"/>
-                            <TextBlock Text="Hỗ trợ" Margin="8,0,0,0" VerticalAlignment="Center"/>
+                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE7B8;" Margin="6,0" Width="22" Foreground="White"/>
+                            <TextBlock Text="Quản lý Kho" Margin="8,0,0,0" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
 
-                    <Button Style="{StaticResource SidebarButtonStyle}">
+                    <Button Style="{StaticResource SidebarButtonStyle}"
+                        Command="{Binding ShowInventoryViewCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE8C3;" Margin="6,0" Width="22" Foreground="White"/>
+                            <TextBlock Text="Tồn kho" Margin="8,0,0,0" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Style="{StaticResource SidebarButtonStyle}"
+                            Command="{Binding ShowCustomerViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE13D;" Margin="6,0" Width="22" Foreground="White"/>
-                            <TextBlock Text="Tuỳ chỉnh" Margin="8,0,0,0" VerticalAlignment="Center"/>
+                            <TextBlock Text="Khách hàng" Margin="8,0,0,0" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
 
-                    <Button Style="{StaticResource SidebarButtonStyle}">
+                    <Button Style="{StaticResource SidebarButtonStyle}"
+                            Command="{Binding ShowSupplierViewCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE7C3;" Margin="6,0" Width="22" Foreground="White"/>
+                            <TextBlock Text="Nhà phân phối" Margin="8,0,0,0" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Style="{StaticResource SidebarButtonStyle}"
+                            Command="{Binding ShowNhapHangViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE8CB;" Margin="6,0" Width="22" Foreground="White"/>
                             <TextBlock Text="Nhập hàng" Margin="8,0,0,0" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
 
-                    <Button Style="{StaticResource SidebarButtonStyle}">
+                    <Button Style="{StaticResource SidebarButtonStyle}"
+                            Command="{Binding ShowXuatHangViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE8CC;" Margin="6,0" Width="22" Foreground="White"/>
                             <TextBlock Text="Xuất hàng" Margin="8,0,0,0" VerticalAlignment="Center"/>

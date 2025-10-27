@@ -23,7 +23,7 @@ namespace WMS.Model
 
         public int WarehouseID { get; set; }
 
-        public int EmployeeID { get; set; }
+        public int? EmployeeID { get; set; }
 
         public decimal? TotalAmount { get; set; }
 

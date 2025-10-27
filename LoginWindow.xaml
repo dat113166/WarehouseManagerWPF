@@ -9,12 +9,13 @@
     <Grid>
         <StackPanel VerticalAlignment="Center" Margin="30">
             <TextBlock Text="Tên đăng nhập:" />
-            <TextBox Margin="0,5,0,15" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox x:Name="txtUsername" Margin="0,5,0,15" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" Height="24"/>
 
             <TextBlock Text="Mật khẩu:" />
-            <PasswordBox Name="PasswordBox" Margin="0,5,0,20" />
+            <PasswordBox Name="PasswordBox" Margin="0,5,0,20" Height="24" />
 
-            <Button Content="Đăng nhập" 
+            <Button Content="Đăng nhập"
+                    Height="30"
                     Command="{Binding LoginCommand}"
                     CommandParameter="{Binding ElementName=PasswordBox}"/>
 
